@@ -1,0 +1,87 @@
+ion-header {
+  ion-toolbar {
+    --background: #fff;
+    ion-buttons {
+      ion-icon{
+        color: #000;
+        position: absolute;
+        left: .3em;
+        font-size: 1.8em;
+      }
+    }
+    ion-title {
+      --color: #000;
+      text-align: center;
+    }
+  }
+}
+
+ion-content {
+  --background: #fff;
+
+  .vehicule {
+    background: #478dc5;
+    img {
+      padding: 1em 8em 0 8em;
+    }
+
+    .infovehiculo {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      place-items: center;
+    }
+  }
+
+  ion-card {
+    --background: #e1e1e181;
+    border-radius: 20px;
+
+    ion-card-subtitle {
+      --color: #c2c2c2;
+    }
+
+    ion-card-title h2 {
+      color: #ffff;
+      font-size: 20px;
+    }
+  }
+
+  .fechayhora {
+    ion-card-header {
+      ion-card-title {
+        color: #000;
+      } 
+    }
+
+  }
+
+  .entrada {
+
+    ion-card-title h1{
+      margin-top: 1em;
+      font-size: 18px;
+    }
+
+    input {
+      border: 2px solid red;
+      width: 100%;
+      padding: .7em;
+      border: none;
+      outline: none;
+      background: #c2c2c2;
+      color: #000;
+      border-radius: 10px;
+    }
+  }
+
+  .save {
+    background: #2dd36f ;
+    border-radius: 3px;
+
+    ion-card-title {
+      --color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}

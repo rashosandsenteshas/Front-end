@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="usersadmin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register">
+    <div class="input">
+      <input
+        type="date"
+        name="inicial"
+        placeholder="Fecha inicial"
+        [(ngModel)]="inicial"
+      />
+      <input
+        type="date"
+        name="final"
+        placeholder="Fecha final"
+        [(ngModel)]="final"
+      />
+    </div>
+
+    <div class="button">
+      <ion-button (click)="filtrar()" expand="block"> Filtrar </ion-button>
+    </div>
+  </div>
+
+  <div class="historial" *ngIf="historial.length > 0">
+    <ion-card *ngFor="let item of historial">
+      <ion-card-header>
+        <ion-card-subtitle class="title">Nombre</ion-card-subtitle>
+        <ion-card-subtitle class="title">PLaca</ion-card-subtitle>
+        <ion-card-subtitle class="title">Fecha ingreso</ion-card-subtitle>
+        <ion-card-subtitle class="title">Fecha salida</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-header>
+        <ion-card-subtitle>{{item.nombre}}</ion-card-subtitle>
+        <ion-card-subtitle>{{item.placa}}</ion-card-subtitle>
+        <ion-card-subtitle>{{ formatDate(item.fecha_ingreso) }}</ion-card-subtitle>
+        <ion-card-subtitle>{{ formatDate(item.fecha_salida) }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+
+  <!-- <table *ngIf="historial.length > 0">
+    <caption>
+      Los que entraron por fecha.
+    </caption>
+    <tr *ngFor="let item of historial;  let i = index" [ngClass]="i % 2 === 0 ? 'even-row' : 'odd-row'">
+      <td data-label="Nombre ">{{ item.nombre }}</td>
+      <td data-label="PLaca ">{{item.placa}}</td>
+      <td data-label="Fecha_ingreso - ">{{ formatDate(item.fecha_ingreso) }}</td>
+      <td data-label="Fecha_salida - ">{{item.fecha_salida}}</td>
+    </tr>
+  </table> -->
+</ion-content>

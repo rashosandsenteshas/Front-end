@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card">
+    <ion-card class="cardinter">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Ingresa tu numero de telefono.</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-label position="" >Número telefónico.</ion-label>
+          <input placeholder="Ejm: 3233829201" type="text" [(ngModel)]="numero" name="numero" autocomplete="off">
+
+        <p>Te enviaremos un código de confirmación, debes digitarlo correctamente. </p>
+      </ion-card-content>
+
+
+      <ion-card (click)="sendNumero()">
+        <ion-button  expand="block">
+          Enviar código
+        </ion-button>
+      </ion-card>
+
+    </ion-card>
+  </div>
+</ion-content>

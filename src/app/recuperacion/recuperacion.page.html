@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="codigo"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card">
+    <ion-card class="cardinter">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Ingresa tu correo y la nueva contraseña.</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <div class="input">
+          <ion-label position="" >Correo electronico.</ion-label>
+          
+            <input placeholder="example@example.com" type="email" [(ngModel)]="correo" name="correo" autocomplete="off">
+          
+        </div>
+        <div class="input">
+          <ion-label position="" >Ingresa tu nueva contraseña</ion-label>
+          
+            <input placeholder="contraseña" type="password" [(ngModel)]="contrasena" name="password" autocomplete="off">
+          
+        </div>
+        <div class="input">
+          <ion-label position="" >Confirma tu contraseña.</ion-label>
+          
+            <input placeholder="Confirma tu contraseña" type="password" [(ngModel)]="confirpassword" name="confirpassword" autocomplete="off">
+          
+        </div>
+        <p>Debes digitar el correo asociado a tu cuenta. </p>
+      </ion-card-content>
+
+
+      <ion-card (click)="sendPassword()">
+        <ion-button  expand="block">
+          Recuperar contraseña
+        </ion-button>
+      </ion-card>
+
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="log">
+    <h4 (click)="logOut()">Cerrar sesion <ion-icon slot="end" name="log-out-outline"></ion-icon> </h4>
+  </div>
+
+  <ion-content class="ion-padding">
+    <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)" style="z-index: 1000;">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  <img src="../../assets/img/usersadmin.svg" alt="" class="imgs" />
+  <div class="header">
+    <h1>Usuarios</h1>
+    <div class="search">
+      <input type="search" placeholder="Busca un usuario por su nombre"  [(ngModel)]="searchTerm" (keyup)="onSearchKeyUp($event)" name="searchTerm"/>
+      <ion-icon name="search-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="card" >
+    <div
+      *ngFor="let item of listUsuarios"
+      
+      class="cards"
+      [routerLink]="['/userprofile/'  + item.id_usuarios]"
+    >
+      <ion-card *ngIf="!showListUsuario">
+        <ion-card-content>
+          <ion-card-subtitle> ID {{ item.id_usuarios }}</ion-card-subtitle>
+          <ion-card-title>
+            {{ item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1)}} 
+            {{ item.apellido.charAt(0).toUpperCase() + item.apellido.slice(1) }}
+          </ion-card-title>
+        </ion-card-content>
+
+        <img src="../../assets/img/usuario.png" alt="" class="user" />
+        <img src="../../assets/img/card.svg" alt="" class="img" />
+      </ion-card>
+    </div>
+    <div class="cards" *ngFor="let user of searchResults" [routerLink]="['/userprofile/'  + user.id_usuarios]">
+      <ion-card *ngIf="showListUsuario">
+        <ion-card-content>
+          <ion-card-subtitle> ID {{ user.id_usuarios }}</ion-card-subtitle>
+          <ion-card-title>
+            {{ user.nombre.charAt(0).toUpperCase() + user.nombre.slice(1)}} 
+            {{ user.apellido.charAt(0).toUpperCase() + user.apellido.slice(1) }}
+          </ion-card-title>
+        </ion-card-content>
+
+        <img src="../../assets/img/usuario.png" alt="" class="user" />
+        <img src="../../assets/img/card.svg" alt="" class="img" />
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button routerLink="/historial">
+        <ion-icon name="file-tray-stacked-outline" ></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

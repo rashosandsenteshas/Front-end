@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="recuperarcontrasena"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card">
+    <ion-card class="cardinter">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Ingresa el código.</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-label position="" >Código de verificacion.</ion-label>
+        
+        <input placeholder="Ejm: 237832" type="text" [(ngModel)]="codigo" name="codigo" autocomplete="off">
+
+        <p>Asegurate de no compartir este código con nadie, ya que es confidencial. </p>
+      </ion-card-content>
+
+
+      <ion-card (click)="sendCodigo()">
+        <ion-button  expand="block">
+          Enviar
+        </ion-button>
+      </ion-card>
+
+    </ion-card>
+  </div>
+</ion-content>

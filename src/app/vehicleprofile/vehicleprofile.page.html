@@ -1,0 +1,64 @@
+<ion-app *ngFor="let item of infoVehiculo">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>{{ item.modelo }}</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card class="vehicule">
+      <img src="../../assets/img/carros.png" alt="" />
+  
+      <ion-card-title class="ion-text-center">{{ item.placa }}</ion-card-title>
+      <ion-card-header class="infovehiculo">
+        <ion-card-content>
+          <ion-card-title><h2>Marca</h2></ion-card-title>
+          <ion-card-subtitle>{{ item.marca }}</ion-card-subtitle>
+  
+          <ion-card-title><h2>Color</h2></ion-card-title>
+          <ion-card-subtitle>{{ item.color }}</ion-card-subtitle>
+        </ion-card-content>
+        
+        <ion-card-content>
+          <ion-card-title><h2>Modelo</h2></ion-card-title>
+          <ion-card-subtitle>{{ item.modelo }}</ion-card-subtitle>
+  
+          <ion-card-title><h2>Placa</h2></ion-card-title>
+          <ion-card-subtitle>{{item.placa}}</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-card class="fechayhora">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          Genera un reporte sobre este vehículo.
+        </ion-card-title>
+  
+        <ion-card-content class="entrada">
+          <div class="profilevehicle">
+            <ion-card-title><h1>Redacta tu informe y especifica la fecha de los hechos </h1></ion-card-title>
+            <input [(ngModel)]="fecha_suceso" name="fecha" type="date" placeholder="Fecha del reporte (AA-MM-DD)">
+            <textarea [(ngModel)]="descripcion" (input)="onInput($event)"  maxlength="100" name="reporte" id="" cols="30" rows="10" placeholder="Escribe aqui alguna novedad o inconveniente que hayas tenido con este vehiculo dentro del parqueadero (Minimo 10 letras, maximo 100)."></textarea>
+            <span>{{letterCount}}/100 letras</span>
+          </div>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-card [disabled]="isDisabled" [ngClass]="{'card-disabled': !descripcion, 'card-enabled': descripcion}">
+      <ion-card-header class="save" (click)="postReporte()">
+        <ion-card-title>Guardar</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card (click)="deleteVehiculo()" >
+      <ion-card-header class="delete ion-text-center" >
+        <ion-card-title>Eliminar</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-content>
+  
+</ion-app>

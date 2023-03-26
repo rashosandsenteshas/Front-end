@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-icon name="chevron-back-outline" (click)="goBack()"></ion-icon>
+  <img src="../../assets/img/bg.svg" alt="" />
+  <div class="header">
+    <h1>Crea tu cuenta.</h1>
+  </div>
+  
+  <form class="form">
+    <input [(ngModel)]="nombre" type="text" placeholder="Primer nombre" autocomplete="off" name="nombre">
+    <input [(ngModel)]="apellido" type="text" placeholder="Primer apellido" autocomplete="off" name="apellido">
+    <input [(ngModel)]="correo" type="email" placeholder="Ingresa tu correo" autocomplete="off" name="correo">
+    <div class="pass">
+      <input [(ngModel)]="contrasena" [type]="getPasswordType()" type="password" placeholder="Ingresa tu contraseña" autocomplete="off" name="contrasena">
+      <ion-icon name="eye-outline" #eyeIcon (click)="togglePassword()"></ion-icon>
+    </div>
+    <div class="pass">
+      <input [(ngModel)]="confirmarContrasena" [type]="getPasswordType()" type="password" placeholder="Confirma tu contraseña" autocomplete="off" name="confirmarContrasena" >
+      <ion-icon name="eye-outline" #eyeIcon (click)="togglePassword()"></ion-icon>
+    </div>
+    <ion-item>
+      <ion-checkbox name="checkbox" [(ngModel)]="checkbox" required></ion-checkbox>
+      <ion-label>Politicas de uso</ion-label>
+    </ion-item>
+  </form>
+  <div class="button">
+    <ion-button expand="block" shape="round" (click)="addUsuario()">
+      <ion-label >Registrate.</ion-label>
+    </ion-button>
+  </div>
+  <div class="footer">
+    <p>
+       ¿Eres usuario registrado?<a href="" routerLink="/login"> Ingresa tus datos </a>.
+    </p>
+  </div>
+
+</ion-content>

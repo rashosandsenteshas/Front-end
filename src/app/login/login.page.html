@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-icon name="chevron-back-outline" routerLink="/home"></ion-icon>
+
+  <div class="header">
+    <img src="../../assets/img/login.jpg" alt="" />
+    <h1>Inicia sesión.</h1>
+    <p>Para acceder a nuestra app, por favor,<br/>introduce tu correo electrónico y contraseña.</p>
+  </div>
+  <div class="form">
+    <input
+      [(ngModel)]="correo"
+      name="correo"
+      type="email"
+      autocomplete="off"
+      placeholder="Ingresa tu correo"
+    >
+    <div class="pass">
+      <input
+      class="contra"
+      [(ngModel)]="contrasena"
+      name="contrasena"
+      type="password"
+      autocomplete="off"
+      placeholder="Ingresa tu contraseña"
+      [type]="getPasswordType()"
+      >
+      <ion-icon name="eye-outline" #eyeIcon (click)="togglePassword()"></ion-icon>
+    </div>
+    
+    <p routerlink="/recuperarcontrasena"><a href="/recuperarcontrasena"> Recuperar tu contraseña</a></p>
+  </div>
+  <div class="button">
+    <ion-button shape="round" (click)="login()">Iniciar sesión</ion-button>
+  </div>
+  <div class="footer">
+    <p>¿No tienes una cuenta? <a routerLink="/register">Crea una</a>.</p>
+  </div>
+</ion-content>

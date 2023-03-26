@@ -1,0 +1,64 @@
+<ion-app *ngFor="let infoUsuario of infoCliente">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>ID {{ infoUsuario.id_usuarios}}</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="usersadmin"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-card class="info">
+      <ion-card-header>
+        <ion-card-title>{{infoUsuario.nombreCompleto}}</ion-card-title>
+        <ion-card-content>
+          <ion-card-title><h2>Nombre</h2></ion-card-title>
+          <ion-card-subtitle>{{infoUsuario.nombre}}</ion-card-subtitle>
+          <ion-card-title><h2>Apellido</h2></ion-card-title>
+          <ion-card-subtitle>{{infoUsuario.apellido}}</ion-card-subtitle>
+          <ion-card-title><h2>Correo</h2></ion-card-title>
+          <ion-card-subtitle>{{infoUsuario.correo}}</ion-card-subtitle>
+
+          <ion-card-title><h2>Rol</h2></ion-card-title>
+          <ion-card-subtitle>Cliente</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Vehículos</ion-card-title>
+        <ion-card-subtitle
+          >Presiona el vehículo perteneciente al usuario
+        </ion-card-subtitle>
+        <div class="error">
+          <h1>{{message}}</h1>
+        </div>
+        
+        <ion-card-content class="vehiculos">
+          <div class="profilevehicle"  *ngFor="let item of vehiculo">
+            <ion-card class="cardvehiculo"  [routerLink]="['adminvehicleprofile/'  + item.id_vehiculo]">
+              <img src="../../assets/img/coche.png" alt="" />
+              <ion-card-title>{{item.placa}}</ion-card-title>
+            </ion-card>
+          </div>
+          
+        </ion-card-content>
+      </ion-card-header>
+
+    </ion-card>
+
+    <ion-card routerLink="/usersadmin" (click)="deleteUser()">
+      <ion-card-header class="delete">
+        <ion-card-title>Eliminar usuario</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card routerLink="/usersadmin">
+      <ion-card-header class="save">
+        <ion-card-title>Listo</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-content>
+</ion-app>

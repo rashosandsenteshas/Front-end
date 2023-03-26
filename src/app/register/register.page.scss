@@ -1,0 +1,190 @@
+// @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+ion-content {
+  --background: rgb(255 255 255);
+
+  ion-icon {
+    color: #fff;
+    font-size: 2.5em;
+    position: absolute;
+    padding: 0.2em 0 0 0.1em;
+    z-index: 100;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .header {
+    margin-top: 2em;
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 0;
+      color: #3154ac;
+      font-family: "Pacifico", cursive;
+    }
+  }
+
+  .form {
+    display: grid;
+    place-items: center;
+    gap: 1em;
+    margin-top: 3em;
+
+    ion-item {
+      --border-style: none;
+      --background: #ffff;
+      width: 90%;
+      border-radius: 100px;
+      ion-label {
+        color: #050505;
+        position: relative;
+        left: 1em;
+      }
+    }
+
+    input {
+      background: #e4e4e4;
+      padding: 0 33px 0 33px;
+      color: #050505;
+      width: 90%;
+      height: 55px;
+      border-radius: 100px;
+      outline: none;
+      border: none;
+      margin: 0 auto;
+    }
+
+    .pass {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      input {
+        background: #e4e4e4;
+        padding: 0 33px 0 33px;
+        color: #050505;
+        width: 90%;
+        height: 55px;
+        border-radius: 100px;
+        z-index: 0;
+        outline: none;
+        border: none;
+        margin: 0 auto;
+      }
+
+      ion-icon {
+        color: #3154ac;
+        position: absolute;
+        left: 82%;
+        top: 1em;
+        font-size: 10px;
+        width: 10%;
+        height: 50%;
+        z-index: 150;
+        cursor: pointer;
+        // border: 2px solid red;
+      }
+    }
+  }
+
+  .button {
+    ion-button {
+      // margin-bottom: 1em;
+      padding: 0 20px;
+      height: 50px;
+      --background: #3154ac;
+    }
+  }
+
+  .footer {
+    color: #050505;
+    text-align: center;
+
+    a {
+      color: #3154ac;
+    }
+  }
+}
+@media only screen and (max-height: 668px) {
+  ion-content {
+    .form {
+      margin-top: 0;
+      input {
+        height: 45px;
+      }
+
+      .pass{
+        input{
+          height: 45px;
+        }
+      }
+    }
+
+    .button {
+      ion-button {
+        height: 40px;
+      }
+    }
+
+    .header {
+      margin-top: 0;
+      height: 8%;
+      h1 {  
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-height: 739px) and (max-height) {
+  
+}
+
+// @media only screen and (min-height: 759px) {
+//   ion-content {
+//     .form {
+//       margin-top: 1em;
+//       input {
+//         height: 55px;
+//       }
+//     }
+
+//     .button {
+//       margin-top: 30px;
+//       ion-button {
+//         height: 50px;
+//       }
+//     }
+
+//     .header {
+//       margin-top: 1.8em;
+//       height: 10%;
+//       h1 {
+//         font-size: 40px;
+//       }
+//     }
+//   }
+// }
+
+// @media only screen and (min-height: 914px) {
+//   ion-content {
+//     .header {
+//       // margin-top: 3em;
+//       height: 8%;
+//     }
+
+//     .form {
+//       margin-top: 4em;
+//     }
+
+//     .button {
+//       margin-top: 2em;
+//       ion-button {
+//         height: 50px;
+// }

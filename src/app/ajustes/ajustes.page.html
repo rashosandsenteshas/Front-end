@@ -1,0 +1,49 @@
+<ion-content>  
+
+  <div class="header">
+    <div class="bg">
+      <h1>{{infoUsuario.nombre}} {{infoUsuario.apellido}}</h1>
+      <p>{{infoUsuario.correo}}</p>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h1>Actualiza tus datos</h1>
+
+    <ion-card>
+      <ion-card-content>
+        <form>
+          <ion-card-subtitle>Nombre</ion-card-subtitle>
+          <input type="text" placeholder="Nombre" autocomplete="off" name="nombre" [(ngModel)]="infoUsuario.nombre" [disabled]="true" style="background: #7777779a;">
+          <ion-card-subtitle>Apellido</ion-card-subtitle>
+          <input type="text" placeholder="Apellido" autocomplete="off" name="apellido" [(ngModel)]="infoUsuario.apellido"[disabled]="true"style="background: #7777779a;"/>
+          <ion-card-subtitle>Correo</ion-card-subtitle>
+          <input type="email" placeholder="Correo" autocomplete="off" name="correo" [(ngModel)]="correo" [(ngModel)]="infoUsuario.correo">
+          <ion-card-subtitle>Contraseña</ion-card-subtitle>
+          <input [type]="getPasswordType()" placeholder="Contraseña nueva"  autocomplete="off" name="password"[(ngModel)]="contrasena"/>
+          <ion-card-subtitle>Confirma la contraseña</ion-card-subtitle>
+          <input [type]="getPasswordType()" placeholder="Confirmar contraseña"  autocomplete="off" name="password2" [(ngModel)]="confirContrasena"/>
+          <p (click)="togglePassword()">mostrar/ocultar contrasena</p>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="buttons">
+      <ion-card class="save" (click)="save()">
+        <ion-card-header>
+          <ion-icon name="save-outline"></ion-icon>
+          <ion-card-title>Guardar</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+  
+      <ion-card (click)="logOut()" class="logout">
+        <ion-card-header>
+          <ion-icon name="log-out-outline"></ion-icon>
+          <ion-card-title>Cerrar sesión</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
