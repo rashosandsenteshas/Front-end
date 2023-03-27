@@ -13,7 +13,7 @@
 
     <input type="text" placeholder="Marca del vehiculo" autocomplete="off" [(ngModel)]="marca" name="carro" (input)="convertirLetras()"/>
     <input type="text" placeholder="Modelo del vehiculo" autocomplete="off" [(ngModel)]="modelo" name="modelo" (input)="convertirLetras()"/>
-    <input type="text" placeholder="Placa del vehiculo" autocomplete="off" [(ngModel)]="placa" name="placa" (input)="convertirLetras()" maxlength="7"/>
+    <input type="text" placeholder="Placa del vehiculo" autocomplete="off" [(ngModel)]="placa" name="placa" (input)="convertirLetras()" maxlength="7" [disabled]="vehiculoSelect === 'Bicicleta'"/>
     <input type="text" placeholder="Color del vehiculo" autocomplete="off" [(ngModel)]="color" name="color" (input)="convertirLetras()"/>
 
     <ion-card class="fechayhora">
@@ -43,7 +43,7 @@
   </form>
 
   <div class="footer">
-    <ion-button shape="round" (click)="postVehiculo()"> Listo </ion-button>
+    <ion-button shape="round" (click)="postVehiculo()" > Listo </ion-button>
   </div>
 </ion-content>
 

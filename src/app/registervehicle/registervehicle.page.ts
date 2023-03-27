@@ -65,6 +65,10 @@ export class RegistervehiclePage implements OnInit {
     if (this.placa.length === 3) {
       this.placa = this.placa + '-';
     }
+
+    if(this.vehiculoSelect === "Bicicleta") {
+      this.placa = this.placa + 'NULL'
+    }
   }
 
   calcularFechaVencimiento() {
@@ -125,6 +129,8 @@ export class RegistervehiclePage implements OnInit {
 
     this._vehiculoService.Postvehiculo(vehiculo).subscribe({
       next: async (tokenVehiculo) => {
+
+        this._vehiculoService.Getvehiculo().subscribe()
 
         this.router.navigate(['/tabs/vehiculos'])
         localStorage.setItem('tokenVehiculo', tokenVehiculo)

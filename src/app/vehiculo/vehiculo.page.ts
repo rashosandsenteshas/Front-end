@@ -15,6 +15,12 @@ export class VehiculoPage implements OnInit {
   listVehiculosForId: any
   message: string = ""
 
+  images = {
+    "Carro": "../../assets/img/coche.png",
+    "Moto": "../../assets/img/motobiker.png",
+    "Bicicleta": "../../assets/img/biker.png",
+  }
+
   constructor(
     private _vehiculoService: VehiculosService,
     private http: HttpClient,
@@ -47,7 +53,7 @@ export class VehiculoPage implements OnInit {
   
   getVehiculo() {this._vehiculoService.Getvehiculo().subscribe(data => {
     this.listVehiculosForId = data; 
-    // console.log(this.listVehiculosForId); 
+    console.log(this.listVehiculosForId); 
    }, (e: HttpErrorResponse) => {
     this.msjError(e)
    })} 

@@ -25,6 +25,12 @@ export class AdminvehicleprofilePage implements OnInit {
   hora_ingreso: string = '';
   hora_salida: string = '';
 
+  images = {
+    "Carro": "../../assets/img/carros.png",
+    "Moto": "../../assets/img/motos.png",
+    "Bicicleta": "../../assets/img/bicicletas.png",
+  }
+
   /* injectamos los modulos necesarios */
   constructor(
     private router: Router,
@@ -46,7 +52,7 @@ export class AdminvehicleprofilePage implements OnInit {
     /* peticion para obtener los datos del vehiculo de un usuario en especifico */
     this.http
       .get<any>(
-        `http://localhost:3000/api/user/usuarios/${this.id_usuarios}/vehiculos/${this.id_vehiculo}`
+        `https://sorcen-px.up.railway.app/api/user/usuarios/${this.id_usuarios}/vehiculos/${this.id_vehiculo}`
       )
       .subscribe(
         (data) => {
@@ -85,7 +91,7 @@ export class AdminvehicleprofilePage implements OnInit {
     loading.present();
 
     /* Peticion a la API REST (POST) y se envian los datos a la base de datos */
-    this.http.post<any>(`http://localhost:3000/api/user/usuarios/${this.id_usuarios}/vehiculos/${this.id_vehiculo}/entrada-salida`, entrada_salida)
+    this.http.post<any>(`https://sorcen-px.up.railway.app/api/user/usuarios/${this.id_usuarios}/vehiculos/${this.id_vehiculo}/entrada-salida`, entrada_salida)
     .subscribe({
       next: async (tokenEntrada_salida) => {
 

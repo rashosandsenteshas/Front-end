@@ -14,9 +14,9 @@ ion-content {
       // border-radius: 30% 70% 71% 29% / 43% 32% 68% 57% ;
       padding: 6em 0 0 0;
       height: 35vh;
-      background: #63199f;
+      background: linear-gradient(90deg, #b999d4, #9d67fb);
+      animation: anim 5s infinite ease-in-out; 
 
-      
       h1 {
         position: relative;
         // top: 38%;
@@ -35,6 +35,18 @@ ion-content {
         position: relative;
         text-align: center;
         // transform: translate(-50%, -50%);
+      }
+    }
+
+    @keyframes anim {
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
       }
     }
   }
@@ -76,6 +88,14 @@ ion-content {
           color: #383838;
           font-weight: 700;
         }
+      }
+    }
+  }
+
+  .reportes{
+    ion-card-header{
+      ion-card-title{
+        color: #000;
       }
     }
   }

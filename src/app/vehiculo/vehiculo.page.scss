@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 ion-content {
-  --background: #fff;
+  --background: #ffffff;
   transition: 0.3s;
-
 
   img {
     width: 100%;
@@ -32,7 +31,7 @@ ion-content {
         font-weight: 600;
         font-size: 1.8em;
       }
-  
+
       h1 span {
         color: #63199f;
         font-size: 30px;
@@ -42,17 +41,12 @@ ion-content {
     }
   }
 
-  
-
   .card {
-    overflow: inherit;
-    // position: relativ  e;
-    // top: 35vh;
+    // overflow: inherit;
     gap: 1px;
     height: 48vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(14rem, auto));
-
 
     h1 {
       // border: 2px solid red;
@@ -66,10 +60,11 @@ ion-content {
       display: grid;
       place-items: center;
       grid-template-columns: 50% 50%;
-      border-radius: 5px;
       height: 20vh;
-      background: #68686846;
-      padding: 2em;
+      border-radius: 16px;
+      background: #e0e0e0;
+      box-shadow: 5px 5px 10px #a8a8a8, -5px -5px 10px #ffffff;
+      padding: 3em;
     }
 
     ion-card img {
@@ -82,11 +77,15 @@ ion-content {
     }
   }
 
+  .cardadd {
+    position: relative;
+    height: auto;
+  }
   .ion-add-car {
     position: fixed;
-    right: 8em;
-    bottom: .3em;
-    border-radius: 2rem;
+    left: 50%;
+    top: 99%;
+    transform: translate(-50%, -99%);
 
     ion-button {
       width: 150px;

@@ -39,7 +39,9 @@
         <ion-card-content class="vehiculos">
           <div class="profilevehicle"  *ngFor="let item of vehiculo">
             <ion-card class="cardvehiculo"  [routerLink]="['adminvehicleprofile/'  + item.id_vehiculo]">
-              <img src="../../assets/img/coche.png" alt="" />
+              <img *ngIf="item.tipo_vehiculo === 'Carro'" src="{{images['Carro']}}" alt="" />
+              <img *ngIf="item.tipo_vehiculo === 'Moto'" src="{{images['Moto']}}" alt="" />
+              <img *ngIf="item.tipo_vehiculo === 'Bicicleta'" src="{{images['Bicicleta']}}" alt="" />
               <ion-card-title>{{item.placa}}</ion-card-title>
             </ion-card>
           </div>

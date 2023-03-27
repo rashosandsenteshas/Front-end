@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './utils/auth.guard';
+import { VehiculosGuard } from './utils/vehiculos.guard';
 
 const routes: Routes = [
   {
@@ -30,6 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
+    canActivate: [VehiculosGuard],
+    runGuardsAndResolvers: 'always',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
@@ -57,7 +60,8 @@ const routes: Routes = [
   {
     path: 'historial',
     loadChildren: () => import('./historial/historial.module').then( m => m.HistorialPageModule)
-  },  {
+  },
+  {
     path: 'recuperarcontrasena',
     loadChildren: () => import('./recuperarcontrasena/recuperarcontrasena.module').then( m => m.RecuperarcontrasenaPageModule)
   },
@@ -69,6 +73,15 @@ const routes: Routes = [
     path: 'recuperacion',
     loadChildren: () => import('./recuperacion/recuperacion.module').then( m => m.RecuperacionPageModule)
   },
+  {
+    path: 'reportesuser',
+    loadChildren: () => import('./reportesuser/reportesuser.module').then( m => m.ReportesuserPageModule)
+  },
+  {
+    path: 'userprofile/:id_usuarios/reportesadmin',
+    loadChildren: () => import('./reportesadmin/reportesadmin.module').then( m => m.ReportesadminPageModule)
+  },
+
 
 
 

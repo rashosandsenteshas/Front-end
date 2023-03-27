@@ -16,8 +16,10 @@
 
   <div class="card">
     <div class="profilevehicle" *ngFor="let item of listVehiculosForId" [routerLink]="['/vehicleprofile/'  + item.id_vehiculo]">
-      <ion-card >
-        <img src="../../assets/img/coche.png" alt="" />
+      <ion-card class="cards">
+        <img *ngIf="item.tipo_vehiculo === 'Carro'" src="{{images['Carro']}}" alt="" />
+        <img *ngIf="item.tipo_vehiculo === 'Moto'" src="{{images['Moto']}}" alt="" />
+        <img *ngIf="item.tipo_vehiculo === 'Bicicleta'" src="{{images['Bicicleta']}}" alt="" />
 
         <ion-card-content>
           <ion-card-subtitle>{{item.marca}}</ion-card-subtitle>
@@ -33,9 +35,11 @@
     </div>
   </div>
 
-  <ion-fab horizontal="center">
+
+
+  <div class="cardadd">
     <div class="ion-add-car">
       <ion-button routerLink="/registervehicle">Añadir</ion-button>
     </div>
-  </ion-fab>
+  </div>
 </ion-content>

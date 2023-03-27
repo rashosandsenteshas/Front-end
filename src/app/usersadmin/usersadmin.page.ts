@@ -91,6 +91,6 @@ export class UsersadminPage implements OnInit {
   logOut() {
     this.router.navigate(['/login'])
     localStorage.removeItem('token')
-    localStorage.removeItem('tokenEntrada_salida')
+    localStorage.removeItem('tokenEntradaSalida')
   }
 }

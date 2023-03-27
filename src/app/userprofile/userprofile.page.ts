@@ -17,6 +17,13 @@ export class UserprofilePage implements OnInit {
 
   profileId = String;
   id: any = String;
+
+  images = {
+    "Carro": "../../assets/img/coche.png",
+    "Moto": "../../assets/img/motobiker.png",
+    "Bicicleta": "../../assets/img/biker.png",
+  }
+  
   constructor(
     private router: Router,
     private activateRoute: ActivatedRoute,
@@ -30,13 +37,13 @@ export class UserprofilePage implements OnInit {
     this.id = this.activateRoute.snapshot.paramMap.get('id_usuarios');
 
     this.http
-      .get(`http://localhost:3000/api/user/usuarios/${this.id}/`)
+      .get(`https://sorcen-px.up.railway.app/api/user/usuarios/${this.id}/`)
       .subscribe(({ id_usuarios, apellido, nombre, correo }: any) : Array<any> => {
         const nombreCompleto: String = `${nombre.charAt(0).toUpperCase() + nombre.slice(1)} ${apellido.charAt(0).toUpperCase() + apellido.slice(1)}`
         return (this.infoCliente = [{id_usuarios, nombreCompleto, correo, nombre, apellido}]);
       });
 
-    this.http.get<any>(`http://localhost:3000/api/user/usuarios/${this.id}/vehiculos`)
+    this.http.get<any>(`https://sorcen-px.up.railway.app/api/user/usuarios/${this.id}/vehiculos`)
     .subscribe(data => {
       this.vehiculo = data;
     
@@ -62,7 +69,7 @@ export class UserprofilePage implements OnInit {
     this.id = this.activateRoute.snapshot.paramMap.get('id_usuarios');
 
     this.http
-      .delete(`http://localhost:3000/api/user/usuarios/${this.id}`)
+      .delete(`https://sorcen-px.up.railway.app/api/user/usuarios/${this.id}`)
       .subscribe(async (res) => {
         this.router.navigate(['/usersadmin']);
         this._usuariosServices.getUsuarios()

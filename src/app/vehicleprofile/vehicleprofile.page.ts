@@ -23,6 +23,11 @@ export class VehicleprofilePage implements OnInit {
 
   isDisabled: boolean = true;
 
+  images = {
+    "Carro": "../../assets/img/carros.png",
+    "Moto": "../../assets/img/motos.png",
+    "Bicicleta": "../../assets/img/bicicletas.png",
+  }
   constructor(
     private _reporteService: ReportesService,
     private alertController: AlertController,
@@ -38,7 +43,7 @@ export class VehicleprofilePage implements OnInit {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
 
     this.http
-      .get(`http://localhost:3000/api/user/vehiculos/${this.id}`)
+      .get(`https://sorcen-px.up.railway.app/api/user/vehiculos/${this.id}`)
       .subscribe((res) => {
         this.infoVehiculo.push(res);
         // console.log(this.infoVehiculo.modelo);
@@ -66,7 +71,7 @@ export class VehicleprofilePage implements OnInit {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
 
     this.http
-      .delete(`http://localhost:3000/api/user/vehiculos/${this.id}`)
+      .delete(`https://sorcen-px.up.railway.app/api/user/vehiculos/${this.id}`)
       .subscribe(async (res) => {
         this.router.navigate(['/tabs/vehiculos']);
         const toast = await this.toastController.create({
