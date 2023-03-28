@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="ajustes"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Tus reportes</ion-title>
+    <ion-title class="ion-text-center">Reportes del usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of reportesUser" (click)="selectedReportId = item.id_reportes">
+  <ion-card *ngFor="let item of reportes" (click)="selectedReportId = item.id_reportes">
     <ion-card-header>
       <!-- <ion-buttons>
         <ion-icon name="trash-outline"></ion-icon>
@@ -19,4 +19,8 @@
       <ion-card-title>{{item.descripcion}}</ion-card-title>
     </ion-card-header>
   </ion-card>
+
+  <div class="error">
+    <h1>{{message}}</h1>
+  </div>
 </ion-content>

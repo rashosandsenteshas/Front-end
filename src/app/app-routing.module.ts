@@ -78,12 +78,9 @@ const routes: Routes = [
     loadChildren: () => import('./reportesuser/reportesuser.module').then( m => m.ReportesuserPageModule)
   },
   {
-    path: 'userprofile/:id_usuarios/reportesadmin',
-    loadChildren: () => import('./reportesadmin/reportesadmin.module').then( m => m.ReportesadminPageModule)
-  },
-
-
-
+    path: 'userprofile/:id_usuarios/reportesuseradmin',
+    loadChildren: () => import('./reportesuseradmin/reportesuseradmin.module').then( m => m.ReportesuseradminPageModule)
+  }
 
 
   /* {

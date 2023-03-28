@@ -21,4 +21,11 @@ export class ReportesService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
     return this.http.post<string>(`${this.MyAppUrl}${this.MyApiUrl}/user/reportes`, reporte, { headers: headers})
   }
+
+  GetReporte(): Observable<any> {
+    const token = localStorage.getItem('token')
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    return this.http.get(`${this.MyAppUrl}${this.MyApiUrl}/user/reportes`, { headers: headers})
+  }
+  
 }

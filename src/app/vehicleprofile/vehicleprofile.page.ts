@@ -126,9 +126,9 @@ export class VehicleprofilePage implements OnInit {
     };
 
     this._reporteService.PostReporte(reporte).subscribe({
-      next: async (tokenVehiculo) => {
+      next: async (tokenReportes) => {
         this.router.navigate(['/tabs/vehiculos']);
-        localStorage.setItem('tokenVehiculo', tokenVehiculo);
+        localStorage.setItem('tokenReportes', tokenReportes);
 
         const toast = await this.toastController.create({
           message: 'Reporte guardado exitosamente!',
