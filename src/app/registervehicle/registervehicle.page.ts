@@ -32,7 +32,12 @@ export class RegistervehiclePage implements OnInit {
 
   vehiculoSelect: string = ''
   vehiculoseleccionado: string = ''
+
   tipo_vehiculo: any;
+  aseguradora: any;
+
+  aseguradoraSeleccionada: string = ''
+  aseguradoraSelect: string = ''
   
   nombre_aseguradora: string = ""
   fecha_expedicion: string = ""
@@ -48,6 +53,8 @@ export class RegistervehiclePage implements OnInit {
     private _aseguradoraService: AseguradoraService
     ) {
     this.tipo_vehiculo = ['Carro', "Moto", "Bicicleta"]
+    this.aseguradora = ["Seguros Bolívar", "Allianz Colombia","Liberty Seguros","Seguros Sura","Mapfre Colombia","Seguros Mundial"," Axa Colpatria"," Seguros del Estado","QBE Seguros","  Zurich Seguros"," La Equidad Seguros"," Seguros Generales Suramericana","Positiva Seguros"," Seguros Alfa"," Chubb Seguros","  HDI Seguros","  Seguros Falabella","Generali Colombia","RSA Seguros"," Seguros Coomeva"," Seguros Éxito"," Seguros Patria"," Seguros Comerciales Bolívar","  Seguros del Magdalena"," Seguros Carulla"," Seguros La Previsora","Seguros GNB Sudameris"," Seguros Confianza","Seguros de Vida Alfa","SBS Seguros", "No cuento con aseguradora"
+    ]
     
   }
   
@@ -82,13 +89,29 @@ export class RegistervehiclePage implements OnInit {
 
   setValueVehiculo() {
     this.vehiculoseleccionado = this.vehiculoSelect 
-    // console.log(this.vehiculoseleccionado); 
+
+  }
+
+  setValueAseguradora() {
+    this.aseguradoraSeleccionada = this.aseguradoraSelect 
+  
+
+    if (this.aseguradoraSelect === "No cuento con aseguradora") {
+      const fechaActual = new Date().toISOString().substring(0, 10);
+      this.fecha_expedicion = fechaActual;
+      this.fecha_vencimiento = fechaActual;
+    }
+
+    if (this.aseguradoraSeleccionada !== "No cuento con aseguradora") {
+      this.fecha_expedicion = '';
+      this.fecha_vencimiento = '';
+    }
   }
 
   
   async postVehiculo(){
 
-    if(!this.marca || !this.modelo || !this.color || !this.vehiculoseleccionado || !this.nombre_aseguradora || !this.fecha_expedicion || !this.fecha_vencimiento){
+    if(!this.marca || !this.modelo || !this.color || !this.vehiculoseleccionado || !this.aseguradoraSeleccionada || !this.fecha_expedicion || !this.fecha_vencimiento){
       const alert = await this.alertController.create({
         header: 'Lo sentimos!!',
         message: 'Debe diligenciar todos los campos',
@@ -111,13 +134,12 @@ export class RegistervehiclePage implements OnInit {
     }
 
     const aseguradora: Aseguradora = {
-      nombre_aseguradora: this.nombre_aseguradora,
+      nombre_aseguradora: this.aseguradoraSeleccionada,
       fecha_expedicion: this.fecha_expedicion,
       fecha_vencimiento: this.fecha_vencimiento
     }
 
-    // console.log(vehiculo);
-    // console.log(aseguradora);
+
 
     const loading = await this.loadingCtrl.create({
       message: 'Porfavor espere...',

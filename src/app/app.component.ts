@@ -14,8 +14,6 @@ export class AppComponent {
 
   verificarSesion() {
     
-    // const user = localStorage.getItem('token')
-
     const role: any = localStorage.getItem('token');
     if (role) {
       const decodedToken: any = jwt_decode(role);
@@ -29,20 +27,6 @@ export class AppComponent {
         this.router.navigate(['/home'])
       }
     }
-
-    
-
-    // if(!decodedToken){
-    //   return this.router.navigate(['/home'])
-    // }
-
-    // if(idRoles === 2){
-    //   this.router.navigate(['/tabs/vehiculos'])
-    // } else if(idRoles === 1){
-    //   this.router.navigate(['/usersadmin'])
-    // } else {
-    //   this.router.navigate(['/home'])
-    // }
 
   }
 }

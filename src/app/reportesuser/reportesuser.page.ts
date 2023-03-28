@@ -31,7 +31,6 @@ export class ReportesuserPage implements OnInit {
     this._reportesService.GetReporte().subscribe((data) => {
       this.reportesUser = data;
 
-      console.log(this.reportesUser);
     });
   }
 

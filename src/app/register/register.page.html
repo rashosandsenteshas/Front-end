@@ -4,33 +4,134 @@
   <div class="header">
     <h1>Crea tu cuenta.</h1>
   </div>
-  
+
   <form class="form">
-    <input [(ngModel)]="nombre" type="text" placeholder="Primer nombre" autocomplete="off" name="nombre">
-    <input [(ngModel)]="apellido" type="text" placeholder="Primer apellido" autocomplete="off" name="apellido">
-    <input [(ngModel)]="correo" type="email" placeholder="Ingresa tu correo" autocomplete="off" name="correo">
+    <input
+      [(ngModel)]="nombre"
+      type="text"
+      placeholder="Primer nombre"
+      autocomplete="off"
+      name="nombre"
+      (input)="convertirLetra()"
+    />
+    <input
+      [(ngModel)]="apellido"
+      type="text"
+      placeholder="Primer apellido"
+      autocomplete="off"
+      name="apellido"
+      (input)="convertirLetra()"
+    />
+    <input
+      [(ngModel)]="correo"
+      type="email"
+      placeholder="Ingresa tu correo"
+      autocomplete="off"
+      name="correo"
+    />
     <div class="pass">
-      <input [(ngModel)]="contrasena" [type]="getPasswordType()" type="password" placeholder="Ingresa tu contraseña" autocomplete="off" name="contrasena">
-      <ion-icon name="eye-outline" #eyeIcon (click)="togglePassword()"></ion-icon>
+      <input
+        [(ngModel)]="contrasena"
+        [type]="getPasswordType()"
+        type="password"
+        placeholder="Ingresa tu contraseña"
+        autocomplete="off"
+        name="contrasena"
+      />
+      <ion-icon
+        name="eye-outline"
+        #eyeIcon
+        (click)="togglePassword()"
+      ></ion-icon>
     </div>
     <div class="pass">
-      <input [(ngModel)]="confirmarContrasena" [type]="getPasswordType()" type="password" placeholder="Confirma tu contraseña" autocomplete="off" name="confirmarContrasena" >
-      <ion-icon name="eye-outline" #eyeIcon (click)="togglePassword()"></ion-icon>
+      <input
+        [(ngModel)]="confirmarContrasena"
+        [type]="getPasswordType()"
+        type="password"
+        placeholder="Confirma tu contraseña"
+        autocomplete="off"
+        name="confirmarContrasena"
+      />
+      <ion-icon
+        name="eye-outline"
+        #eyeIcon
+        (click)="togglePassword()"
+      ></ion-icon>
     </div>
-    <ion-item>
-      <ion-checkbox name="checkbox" [(ngModel)]="checkbox" required></ion-checkbox>
-      <ion-label>Politicas de uso</ion-label>
+    <ion-item >
+      <ion-checkbox
+        name="checkbox"
+        [(ngModel)]="checkbox"
+        required
+      ></ion-checkbox>
+      <ion-label (click)="setOpen(true)">Políticas de uso</ion-label>
     </ion-item>
   </form>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>SorcenPx </ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Aceptar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+
+          <strong>Políticas de uso que puedes considerar para el parqueadero:</strong>
+          
+          <br />
+          <br />
+          “ <strong>Estacionamiento seguro:</strong>  El parqueadero se utiliza bajo su propio riesgo. La empresa no se hace responsable por cualquier robo, daño o pérdida de objetos personales o del vehículo.
+
+          <br />
+          <br />
+          “<strong>Horarios de uso:</strong>  Se deben establecer horarios de uso del parqueadero. Por ejemplo, puede ser de 5 a.m. a 12 a.m. de lunes a domingo.
+
+          <br />
+          <br />
+          “<strong>Velocidad de manejo:</strong>- Se debe conducir a velocidad reducida dentro del parqueadero para evitar accidentes.
+
+          <br />
+          <br />
+          “<strong>Prohibición de actividades ilegales: </strong>Está prohibido cualquier actividad ilegal dentro del parqueadero, como el consumo de drogas, la venta de artículos ilegales, etc.
+          <br />
+          <br />
+          “<strong>Prohibición de almacenar materiales peligrosos:</strong> No se permite el almacenamiento de materiales peligrosos en el parqueadero.
+          <br />
+          <br />
+          <strong>Responsabilidad del usuario:</strong> Los usuarios son responsables de cualquier daño que causen a otros vehículos o a la propiedad del parqueadero.
+          <br />
+          <br />
+          <strong>Tiempo máximo de estacionamiento: </strong>Se debe establecer un tiempo máximo de estacionamiento. Por ejemplo, los usuarios solo pueden estacionar su vehículo por un máximo de 24 horas.
+          <br />
+          <br />
+          <strong>Prohibición de estacionar en lugares prohibidos:</strong> Los usuarios deben estacionar únicamente en los lugares asignados. No se permite estacionar en lugares reservados para personas con discapacidad, zonas de carga y descarga, etc.
+          <br />
+          <br />
+          <strong>Derecho de admisión:</strong> El parqueadero se reserva el derecho de admisión y puede negar el acceso a cualquier persona que incumpla las políticas de uso o que represente un riesgo para la seguridad de los demás usuarios.
+          <br />
+          <br />
+          
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
   <div class="button">
     <ion-button expand="block" shape="round" (click)="addUsuario()">
-      <ion-label >Registrate.</ion-label>
+      <ion-label>Regístrate.</ion-label>
     </ion-button>
   </div>
   <div class="footer">
     <p>
-       ¿Eres usuario registrado?<a href="" routerLink="/login"> Ingresa tus datos </a>.
+      ¿Eres usuario registrado?<a href="" routerLink="/login">
+        Ingresa tus datos </a
+      >.
     </p>
   </div>
-
 </ion-content>

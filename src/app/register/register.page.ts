@@ -31,6 +31,9 @@ export class RegisterPage implements OnInit {
   showPassword: boolean = false;
   @ViewChild('eyeIcon') eyeIcon?: IonIcon;
 
+
+  isModalOpen = false;
+
   constructor(
     private router: Router,
     private _location: Location,
@@ -41,6 +44,15 @@ export class RegisterPage implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  convertirLetra(){
+    this.nombre = this.nombre.charAt(0).toUpperCase() + this.nombre.slice(1);
+    this.apellido = this.apellido.charAt(0).toUpperCase() + this.apellido.slice(1);
+  }
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
   /* Se muestra o no la contrasena  */
   togglePassword() {
@@ -135,7 +147,6 @@ export class RegisterPage implements OnInit {
     this._usuarioService.register(usuario).subscribe({
       next: async (v) => {
         /* Mensaje de usuario al registrarse */
-        console.log('el usuario fue registrado con exito');
         const toast = await this.toastController.create({
           message: 'Usuario registrado con exito!',
           duration: 4000,
@@ -181,12 +192,6 @@ export class RegisterPage implements OnInit {
 
       await alert.present();
     }
-  }
-
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
   }
 
   goBack() {

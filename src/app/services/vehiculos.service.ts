@@ -33,11 +33,5 @@ export class VehiculosService {
     return this.http.get<any>(`${this.MyAppUrl}${this.MyApiUrl}/user/vehiculos`, { headers: headers})
     // return this.http.get<any>(`${this.MyAppUrl}${this.MyApiUrl}/user/vehiculos`,  { headers: headers })
   }
-
-  // DeleteVehiculo(): Observable<any> {
-  //   this.id = this.activateRoute.snapshot.paramMap.get('id');
-  //   console.log(this.id);
-  //   return this.http.delete(`${this.MyAppUrl}${this.MyApiUrl}/user/vehiculos/${this.id}`)
-  // }
   
 }

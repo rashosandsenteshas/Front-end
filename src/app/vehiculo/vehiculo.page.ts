@@ -53,7 +53,6 @@ export class VehiculoPage implements OnInit {
   
   getVehiculo() {this._vehiculoService.Getvehiculo().subscribe(data => {
     this.listVehiculosForId = data; 
-    console.log(this.listVehiculosForId); 
    }, (e: HttpErrorResponse) => {
     this.msjError(e)
    })} 

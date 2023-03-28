@@ -11,6 +11,10 @@ ion-header {
       text-align: center;
     }
 
+    ion-button{
+      --border-radius: 50%;
+    }
+
     ion-back-button {
       color: #000;
       position: absolute;

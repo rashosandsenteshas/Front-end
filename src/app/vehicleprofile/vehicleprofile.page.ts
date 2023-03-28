@@ -46,16 +46,9 @@ export class VehicleprofilePage implements OnInit {
       .get(`https://sorcen-px.up.railway.app/api/user/vehiculos/${this.id}`)
       .subscribe((res) => {
         this.infoVehiculo.push(res);
-        // console.log(this.infoVehiculo.modelo);
       });
-
-    // this.http
-    //   .get(`http://localhost:3000/api/user/vehiculos/${this.id}`)
-    //   .subscribe(({ id_vehiculo, apellido, nombre, correo }: any) : Array<any> => {
-    //     const nombreCompleto: String = `${nombre.charAt(0).toUpperCase() + nombre.slice(1)} ${apellido.charAt(0).toUpperCase() + apellido.slice(1)}`
-    //     return (this.infoVehiculo = [{id_usuarios, nombreCompleto, correo}]);
-    //   });
   }
+
 
   async deleteVehiculo() {
     localStorage.removeItem('tokenVehiculo');
@@ -95,6 +88,8 @@ export class VehicleprofilePage implements OnInit {
     }
 
     this.isDisabled = this.letterCount === 0;
+
+    this.descripcion = this.descripcion.charAt(0).toUpperCase() + this.descripcion.slice(1)
   }
 
   async postReporte() {

@@ -47,7 +47,6 @@ export class UserprofilePage implements OnInit {
     .subscribe(data => {
       this.vehiculo = data;
     
-      // console.log(this.vehiculo);
     
     }, (e: HttpErrorResponse) => {
       this.msjError(e)

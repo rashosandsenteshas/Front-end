@@ -10,9 +10,7 @@
 <ion-content>
   <ion-card *ngFor="let item of reportes" (click)="selectedReportId = item.id_reportes">
     <ion-card-header>
-      <!-- <ion-buttons>
-        <ion-icon name="trash-outline"></ion-icon>
-      </ion-buttons> -->
+
       <ion-card-subtitle class="title"
         >{{ formatDate(item.fecha_suceso) }}</ion-card-subtitle
       >

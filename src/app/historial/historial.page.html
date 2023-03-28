@@ -3,6 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="usersadmin"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="reiniciar()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,18 +15,24 @@
 <ion-content>
   <div class="register">
     <div class="input">
+      <div class="div">
+        <ion-label>Fecha ingreso</ion-label>
+        <input
+          type="date"
+          name="inicial"
+          placeholder="Fecha inicial"
+          [(ngModel)]="inicial"
+        />
+      </div>
+      <div class="div2">
+        <ion-label>Fecha salida</ion-label>
       <input
-        type="date"
-        name="inicial"
-        placeholder="Fecha inicial"
-        [(ngModel)]="inicial"
-      />
-      <input
-        type="date"
+      type="date"
         name="final"
         placeholder="Fecha final"
         [(ngModel)]="final"
       />
+      </div>
     </div>
 
     <div class="button">
@@ -29,8 +40,8 @@
     </div>
   </div>
 
-  <div class="historial" *ngIf="historial.length > 0">
-    <ion-card *ngFor="let item of historial">
+  <div class="historial" *ngIf="(historial.length > 0) && (mostrarHistorial || historiales.length > 0)">
+    <ion-card *ngFor="let item of (mostrarHistorial ? historial : historiales)">
       <ion-card-header>
         <ion-card-subtitle class="title">Nombre</ion-card-subtitle>
         <ion-card-subtitle class="title">PLaca</ion-card-subtitle>
@@ -46,7 +57,6 @@
       </ion-card-header>
     </ion-card>
   </div>
-
 
   <!-- <table *ngIf="historial.length > 0">
     <caption>

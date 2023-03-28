@@ -1,10 +1,11 @@
 <ion-content>
   <div class="header">
     <ion-icon name="chevron-back-outline" (click)="goBack()"></ion-icon>
-    <h1>Agrega tu vehiculo</h1>
+    <h1>Agrega tu vehículo</h1>
   </div>
   <form class="form">
-    <ion-item>
+    
+    <ion-item class="item">
       <ion-label>Tipo de vehiculo</ion-label>
       <ion-select aria-label="vehiculos" interface="action-sheet"placeholder="Seleccionar" (ionChange)="setValueVehiculo()" [(ngModel)]="vehiculoSelect" name="vehiculo">
         <ion-select-option  *ngFor="let item of tipo_vehiculo" [value]="item">{{ item }}</ion-select-option>
@@ -24,12 +25,16 @@
 
         <ion-card-content class="entrada">
           <div class="profilevehicle">
-            <ion-card-title><h1>Nombre de la aseguradora</h1></ion-card-title>
-            <input type="text" autocomplete="off" placeholder="Ejem: SURA" [(ngModel)]="nombre_aseguradora" name="nombre" (input)="convertirLetras()" />
+            <ion-item class="aseguradora">
+              <ion-label>Aseguradora</ion-label>
+              <ion-select aria-label="aseguradoras" interface="action-sheet" placeholder="Seleccionar" (ionChange)="setValueAseguradora()" [(ngModel)]="aseguradoraSelect" name="aseguradora">
+                <ion-select-option  *ngFor="let item of aseguradora" [value]="item">{{ item }}</ion-select-option>
+              </ion-select>
+            </ion-item>
           </div>
 
           <div class="profilevehicle">
-            <ion-card-title><h1>Fecha de expedicion</h1></ion-card-title>
+            <ion-card-title><h1>Fecha de expedición</h1></ion-card-title>
             <input type="date" autocomplete="off" placeholder="AA-MM-DD" [(ngModel)]="fecha_expedicion" (ngModelChange)="calcularFechaVencimiento()"  name="expedicion"/>
           </div>
 
@@ -37,6 +42,8 @@
             <ion-card-title><h1>Fecha de vencimiento</h1></ion-card-title>
             <input type="date" autocomplete="off" placeholder="AA-MM-DD" [(ngModel)]="fecha_vencimiento" name="vencimiento" readonly/>
           </div>
+
+          <ion-card-subtitle>Recuerda que es obligatorio tener una aseguradora para tu vehículo.</ion-card-subtitle>
         </ion-card-content>
       </ion-card-header>
     </ion-card>
@@ -47,35 +54,3 @@
   </div>
 </ion-content>
 
-
-
-<!--     Seguros Bolívar
-    Allianz Colombia
-    Liberty Seguros
-    Seguros Sura
-    Mapfre Colombia
-    Seguros Mundial
-    Axa Colpatria
-    Seguros del Estado
-    QBE Seguros
-    Zurich Seguros
-    La Equidad Seguros
-    Seguros Generales Suramericana
-    Positiva Seguros
-    Seguros Alfa
-    Chubb Seguros
-    HDI Seguros
-    Seguros Falabella
-    Generali Colombia
-    RSA Seguros
-    Seguros Coomeva
-    Seguros Éxito
-    Seguros Patria
-    Seguros Comerciales Bolívar
-    Seguros del Magdalena
-    Seguros Carulla
-    Seguros La Previsora
-    Seguros GNB Sudameris
-    Seguros Confianza
-    Seguros de Vida Alfa
-    SBS Seguros -->

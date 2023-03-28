@@ -21,7 +21,7 @@ ion-content {
     text-align: center;
 
     h1 {
-      font-size: 48px;
+      font-size: 44px;
       font-weight: bold;
       margin-top: 0;
       color: #3154ac;
@@ -41,9 +41,11 @@ ion-content {
       width: 90%;
       border-radius: 100px;
       ion-label {
-        color: #050505;
+        color: #3154ac;
+        text-decoration:solid;
         position: relative;
         left: 1em;
+        z-index: 100;
       }
     }
 
@@ -93,6 +95,10 @@ ion-content {
     }
   }
 
+  p{
+    color:#050505;
+  }
+
   .button {
     ion-button {
       // margin-bottom: 1em;
@@ -136,13 +142,13 @@ ion-content {
       margin-top: 0;
       height: 8%;
       h1 {  
-        font-size: 28px;
+        font-size: 32px;
       }
     }
   }
 }
 
-@media only screen and (min-height: 739px) and (max-height) {
+@media only screen and (min-height: 739px) {
   
 }
 

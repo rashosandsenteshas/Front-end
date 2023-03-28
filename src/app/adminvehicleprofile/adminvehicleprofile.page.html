@@ -10,9 +10,9 @@
   
   <ion-content>
     <ion-card class="vehicule">
-      <img *ngIf="item.tipo_vehiculo === 'Carro'" src="{{images['Carro']}}" alt="" />
-      <img *ngIf="item.tipo_vehiculo === 'Moto'" src="{{images['Moto']}}" alt="" />
-      <img *ngIf="item.tipo_vehiculo === 'Bicicleta'" src="{{images['Bicicleta']}}" alt="" />
+      <img *ngIf="item.tipo_vehiculo === 'Carro'" src="{{images['Carro']}}" alt="Carro" />
+      <img *ngIf="item.tipo_vehiculo === 'Moto'" src="{{images['Moto']}}" alt="Moto" />
+      <img *ngIf="item.tipo_vehiculo === 'Bicicleta'" src="{{images['Bicicleta']}}" alt="Bicicleta" />
   
       <ion-card-title class="ion-text-center">{{item.placa}}</ion-card-title>
       <ion-card-header class="infovehiculo">

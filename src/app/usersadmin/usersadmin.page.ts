@@ -72,7 +72,6 @@ export class UsersadminPage implements OnInit {
       this._usuariosService.search(this.searchTerm).subscribe({
         next: (data) => {
           this.searchResults = data;
-          console.log(this.searchResults);
           this.showListUsuario = true;
         }
       })
